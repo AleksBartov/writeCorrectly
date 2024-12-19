@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "write-correctly",
+    "name": "Пишу правильно!",
     "slug": "write-correctly",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
