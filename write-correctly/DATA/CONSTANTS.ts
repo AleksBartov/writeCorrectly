@@ -1,4 +1,12 @@
-export const CLASS_1 = [
+const shuffle = (array: string[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
+
+const C_1 = [
   {
     WORD_TO_TEST: "АГРОНОМ",
     TEST_POSITION: 3,
@@ -372,3 +380,5 @@ export const CLASS_1 = [
     ANSWER_WRONG: "А",
   },
 ];
+
+export const CLASS_1 = shuffle(C_1);
