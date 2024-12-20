@@ -7,9 +7,9 @@ import {
 } from "react-native";
 import * as Haptics from "expo-haptics";
 
-import { WORDS } from "@/DATA/CONSTANTS";
+import { CLASS_1 } from "@/DATA/CONSTANTS";
 
-const { ANSWER_RIGTH, ANSWER_WRONG, WORD_TO_TEST, TEST_POSITION } = WORDS[3];
+const { ANSWER_RIGTH, ANSWER_WRONG, WORD_TO_TEST, TEST_POSITION } = CLASS_1[12];
 const WORD_ARRAY = WORD_TO_TEST.split("");
 const RANDOM = Math.random().toFixed(2);
 const ANSWER_UP = +RANDOM > 0.5 ? ANSWER_RIGTH : ANSWER_WRONG;

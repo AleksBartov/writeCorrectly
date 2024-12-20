@@ -1,30 +1,3 @@
-export const WORDS = [
-  {
-    WORD_TO_TEST: "МОЛОКО",
-    TEST_POSITION: 3,
-    ANSWER_RIGTH: "О",
-    ANSWER_WRONG: "А",
-  },
-  {
-    WORD_TO_TEST: "ХОЛОД",
-    TEST_POSITION: 3,
-    ANSWER_RIGTH: "О",
-    ANSWER_WRONG: "А",
-  },
-  {
-    WORD_TO_TEST: "ГРИБ",
-    TEST_POSITION: 3,
-    ANSWER_RIGTH: "Б",
-    ANSWER_WRONG: "П",
-  },
-  {
-    WORD_TO_TEST: "ПРИЧАЛ",
-    TEST_POSITION: 2,
-    ANSWER_RIGTH: "И",
-    ANSWER_WRONG: "Е",
-  },
-];
-
 export const CLASS_1 = [
   {
     WORD_TO_TEST: "АГРОНОМ",
@@ -298,6 +271,102 @@ export const CLASS_1 = [
   },
   {
     WORD_TO_TEST: "КОМПОТ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "КОНЬКИ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "КОРИДОР",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "КОСТЮМ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "КОСЫНКА",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "ЛАДОНЬ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "А",
+    ANSWER_WRONG: "О",
+  },
+  {
+    WORD_TO_TEST: "ЛИНЕЙКА",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "И",
+    ANSWER_WRONG: "Е",
+  },
+  {
+    WORD_TO_TEST: "ЛИМОН",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "И",
+    ANSWER_WRONG: "Е",
+  },
+  {
+    WORD_TO_TEST: "ЛИСИЦА",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "И",
+    ANSWER_WRONG: "Е",
+  },
+  {
+    WORD_TO_TEST: "МОСКВА",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "МАШИНА",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "А",
+    ANSWER_WRONG: "О",
+  },
+  {
+    WORD_TO_TEST: "МЕДВЕДЬ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "Е",
+    ANSWER_WRONG: "И",
+  },
+  {
+    WORD_TO_TEST: "МОЛОКО",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "МОРОЗ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "МАЛЬЧИК",
+    TEST_POSITION: 5,
+    ANSWER_RIGTH: "И",
+    ANSWER_WRONG: "Е",
+  },
+  {
+    WORD_TO_TEST: "МЕБЕЛЬ",
+    TEST_POSITION: 3,
+    ANSWER_RIGTH: "Е",
+    ANSWER_WRONG: "И",
+  },
+  {
+    WORD_TO_TEST: "МОРКОВЬ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
     ANSWER_WRONG: "А",
