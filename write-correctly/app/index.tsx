@@ -9,6 +9,7 @@ export default function Index() {
   return (
     <View style={{ flex: 1 }}>
       {wordsArray.map((w, i) => {
+        const RANDOM = Math.random().toFixed(2);
         return (
           <Word
             word_test={w}
@@ -18,6 +19,7 @@ export default function Index() {
               setWordsArray(newArray);
             }}
             index={i}
+            random={RANDOM}
           />
         );
       })}
