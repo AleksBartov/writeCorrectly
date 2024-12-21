@@ -6,7 +6,14 @@ const shuffle = (array: string[]) => {
   return array;
 };
 
-const C_1 = [
+export interface Word_type {
+  WORD_TO_TEST: string;
+  TEST_POSITION: number;
+  ANSWER_RIGTH: string;
+  ANSWER_WRONG: string;
+}
+
+const C_1: Word_type[] = [
   {
     WORD_TO_TEST: "АГРОНОМ",
     TEST_POSITION: 3,

@@ -1,140 +1,26 @@
-import {
-  Alert,
-  Text,
-  TouchableOpacity,
-  useWindowDimensions,
-  View,
-} from "react-native";
-import * as Haptics from "expo-haptics";
+import { View } from "react-native";
 
 import { CLASS_1 } from "@/DATA/CONSTANTS";
-const { ANSWER_RIGTH, ANSWER_WRONG, WORD_TO_TEST, TEST_POSITION } = CLASS_1[17];
-const WORD_ARRAY = WORD_TO_TEST.split("");
-const RANDOM = Math.random().toFixed(2);
-const ANSWER_UP = +RANDOM > 0.5 ? ANSWER_RIGTH : ANSWER_WRONG;
-const ANSWER_DOWN = +RANDOM <= 0.5 ? ANSWER_RIGTH : ANSWER_WRONG;
+import Word from "@/components/Word";
+import { useState } from "react";
 
 export default function Index() {
-  const { width, height } = useWindowDimensions();
-  const MAX_WORD_LENGTH = 11;
-  const PADDING = 30;
-  const SIZE = (width - PADDING * 2) / MAX_WORD_LENGTH;
+  const [wordsArray, setWordsArray] = useState(CLASS_1);
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "row",
-        backgroundColor: "#ffffff",
-      }}
-    >
-      {WORD_ARRAY.map((l, i) => {
+    <View style={{ flex: 1 }}>
+      {wordsArray.map((w, i) => {
         return (
-          <View
+          <Word
+            word_test={w}
             key={i}
-            style={{
-              width: SIZE,
-              height: SIZE,
-              justifyContent: "center",
-              alignItems: "center",
+            fadeOut={(i: number) => {
+              const newArray = CLASS_1.splice(i, 1);
+              setWordsArray(newArray);
             }}
-          >
-            <Text
-              style={{
-                fontSize: SIZE * 0.68,
-                fontFamily: "Nunito_800ExtraBold",
-              }}
-            >
-              {l}
-            </Text>
-          </View>
+            index={i}
+          />
         );
       })}
-      <View
-        style={{
-          position: "absolute",
-          width: SIZE,
-          height: SIZE * 2,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#ffffff",
-          transform: [
-            {
-              translateX:
-                -((WORD_ARRAY.length / 2) * SIZE - SIZE / 2) +
-                SIZE * TEST_POSITION,
-            },
-          ],
-        }}
-      >
-        <TouchableOpacity
-          onPress={() => {
-            if (ANSWER_UP === ANSWER_RIGTH) {
-              Haptics.notificationAsync(
-                Haptics.NotificationFeedbackType.Success
-              );
-              Alert.alert("ВЕРНЫЙ ОТВЕТ");
-            } else {
-              Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-              Alert.alert("НЕВЕРНЫЙ ОТВЕТ");
-            }
-          }}
-          style={{
-            width: SIZE,
-            height: SIZE,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: SIZE * 0.68,
-              fontFamily: "Nunito_800ExtraBold",
-              color: "rgba(0,0,0,0.2)",
-            }}
-          >
-            {ANSWER_UP}
-          </Text>
-        </TouchableOpacity>
-        <View
-          style={{
-            width: SIZE,
-            height: 7,
-            borderRadius: 3.5,
-            backgroundColor: "rgba(0,0,0,0.2)",
-          }}
-        ></View>
-        <TouchableOpacity
-          onPress={() => {
-            if (ANSWER_DOWN === ANSWER_RIGTH) {
-              Haptics.notificationAsync(
-                Haptics.NotificationFeedbackType.Success
-              );
-              Alert.alert("ВЕРНЫЙ ОТВЕТ");
-            } else {
-              Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-              Alert.alert("НЕВЕРНЫЙ ОТВЕТ");
-            }
-          }}
-          style={{
-            width: SIZE,
-            height: SIZE,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: SIZE * 0.68,
-              fontFamily: "Nunito_800ExtraBold",
-              color: "rgba(0,0,0,0.2)",
-            }}
-          >
-            {ANSWER_DOWN}
-          </Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }
