@@ -73,7 +73,7 @@ export default function Index() {
           color="green"
           end={percentage}
           start={0}
-          strokeCap={"round"}
+          strokeCap={"square"}
         />
         <Path
           style="stroke"
@@ -82,7 +82,7 @@ export default function Index() {
           color="red"
           end={1}
           start={redPercentage}
-          strokeCap={"round"}
+          strokeCap={"square"}
         />
       </Canvas>
     </>
