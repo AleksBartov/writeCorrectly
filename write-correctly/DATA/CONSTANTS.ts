@@ -380,6 +380,108 @@ const C_1: Word_type[] = [
     ANSWER_RIGTH: "О",
     ANSWER_WRONG: "А",
   },
+  {
+    WORD_TO_TEST: "ОБЛАКО",
+    TEST_POSITION: 3,
+    ANSWER_RIGTH: "А",
+    ANSWER_WRONG: "О",
+  },
+  {
+    WORD_TO_TEST: "ОВЦА",
+    TEST_POSITION: 0,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "ОКНО",
+    TEST_POSITION: 0,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "ОВРАГ",
+    TEST_POSITION: 0,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "ОГУРЕЦ",
+    TEST_POSITION: 0,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "ПАЛЬТО",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "А",
+    ANSWER_WRONG: "О",
+  },
+  {
+    WORD_TO_TEST: "ПЕНАЛ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "Е",
+    ANSWER_WRONG: "И",
+  },
+  {
+    WORD_TO_TEST: "ПИРОГ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "И",
+    ANSWER_WRONG: "Е",
+  },
+  {
+    WORD_TO_TEST: "ПОГОДА",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "ПОРТРЕТ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "ПРЕКРАСНЫЙ",
+    TEST_POSITION: 2,
+    ANSWER_RIGTH: "Е",
+    ANSWER_WRONG: "И",
+  },
+  {
+    WORD_TO_TEST: "ПЕЙЗАЖ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "Е",
+    ANSWER_WRONG: "И",
+  },
+  {
+    WORD_TO_TEST: "ПЕТУХ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "Е",
+    ANSWER_WRONG: "И",
+  },
+  {
+    WORD_TO_TEST: "ПЛАТОК",
+    TEST_POSITION: 2,
+    ANSWER_RIGTH: "А",
+    ANSWER_WRONG: "О",
+  },
+  {
+    WORD_TO_TEST: "ПОМИДОР",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "ПОРТФЕЛЬ",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "О",
+    ANSWER_WRONG: "А",
+  },
+  {
+    WORD_TO_TEST: "ПУТЕШЕСТВИЕ",
+    TEST_POSITION: 3,
+    ANSWER_RIGTH: "Е",
+    ANSWER_WRONG: "И",
+  },
 ];
 
 export const CLASS_1_LENGTH = C_1.length;
