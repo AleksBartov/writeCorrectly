@@ -21,12 +21,6 @@ const C_1: Word_type[] = [
     ANSWER_WRONG: "А",
   },
   {
-    WORD_TO_TEST: "АЛЛЕЯ",
-    TEST_POSITION: 2,
-    ANSWER_RIGTH: "Л",
-    ANSWER_WRONG: " ",
-  },
-  {
     WORD_TO_TEST: "АЛЬБОМ",
     TEST_POSITION: 0,
     ANSWER_RIGTH: "А",
@@ -387,5 +381,7 @@ const C_1: Word_type[] = [
     ANSWER_WRONG: "А",
   },
 ];
+
+export const CLASS_1_LENGTH = C_1.length;
 
 export const CLASS_1 = shuffle(C_1);

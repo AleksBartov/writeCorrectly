@@ -19,6 +19,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Haptics from "expo-haptics";
 import { SIZE } from "@/DATA/SIZES";
 import { Word_type } from "@/DATA/CONSTANTS";
+import { SharedValueType } from "@shopify/react-native-skia";
 
 type Props = {
   word_test: Word_type;
@@ -29,7 +30,14 @@ type Props = {
 
 const DIVIDER_HEIGHT = 7;
 
-const Word = ({ word_test, fadeOut, index, random }: Props) => {
+const Word = ({
+  word_test,
+  fadeOut,
+  index,
+  random,
+  counterRight,
+  counterWrong,
+}: Props) => {
   const { width } = useWindowDimensions();
   const [done, setDone] = useState(false);
   const { ANSWER_RIGTH, ANSWER_WRONG, TEST_POSITION, WORD_TO_TEST } = word_test;
@@ -134,10 +142,13 @@ const Word = ({ word_test, fadeOut, index, random }: Props) => {
                 Haptics.NotificationFeedbackType.Success
               );
               answerUpColor.value = "green";
+
+              counterRight.value = withSpring(counterRight.value + 1);
               // Alert.alert("ВЕРНЫЙ ОТВЕТ");
             } else {
               Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
               answerUpColor.value = "red";
+              counterWrong.value = withSpring(counterWrong.value + 1);
               // Alert.alert("НЕВЕРНЫЙ ОТВЕТ");
             }
           }}
@@ -183,9 +194,11 @@ const Word = ({ word_test, fadeOut, index, random }: Props) => {
                 Haptics.NotificationFeedbackType.Success
               );
               answerDownColor.value = "green";
+              counterRight.value = withSpring(counterRight.value + 1);
             } else {
               Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
               answerDownColor.value = "red";
+              counterWrong.value = withSpring(counterWrong.value + 1);
               // Alert.alert("НЕВЕРНЫЙ ОТВЕТ");
             }
           }}
