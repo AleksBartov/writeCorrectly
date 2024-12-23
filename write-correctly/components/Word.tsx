@@ -26,6 +26,11 @@ type Props = {
   fadeOut: any;
   index: number;
   random: string;
+  counterRight: SharedValueType;
+  counterWrong: SharedValueType;
+  wordsLenght: number;
+  wrongAnswers: string[];
+  setWrongAnswers: any;
 };
 
 const DIVIDER_HEIGHT = 7;
@@ -34,18 +39,21 @@ const Word = ({
   word_test,
   fadeOut,
   index,
-  random,
   counterRight,
   counterWrong,
+  wordsLenght,
+  wrongAnswers,
+  setWrongAnswers,
 }: Props) => {
   const { width } = useWindowDimensions();
   const [done, setDone] = useState(false);
-  const { ANSWER_RIGTH, ANSWER_WRONG, TEST_POSITION, WORD_TO_TEST } = word_test;
+  const { ANSWER_RIGTH, ANSWER_WRONG, TEST_POSITION, WORD_TO_TEST, RANDOM } =
+    word_test;
 
   const WORD_ARRAY = WORD_TO_TEST.split("");
 
-  const ANSWER_UP = +random > 0.5 ? ANSWER_RIGTH : ANSWER_WRONG;
-  const ANSWER_DOWN = +random <= 0.5 ? ANSWER_RIGTH : ANSWER_WRONG;
+  const ANSWER_UP = RANDOM > 0.5 ? ANSWER_RIGTH : ANSWER_WRONG;
+  const ANSWER_DOWN = RANDOM <= 0.5 ? ANSWER_RIGTH : ANSWER_WRONG;
 
   const translateY = useSharedValue(0);
   const answerUpColor = useSharedValue("rgba(0,0,0,0.2)");
@@ -138,18 +146,14 @@ const Word = ({
             answerDownOpacity.value = withTiming(0);
             translateY.value = withSpring(SIZE / 2 + DIVIDER_HEIGHT / 2);
             if (ANSWER_UP === ANSWER_RIGTH) {
-              Haptics.notificationAsync(
-                Haptics.NotificationFeedbackType.Success
-              );
               answerUpColor.value = "green";
 
               counterRight.value = withSpring(counterRight.value + 1);
-              // Alert.alert("ВЕРНЫЙ ОТВЕТ");
             } else {
               Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
               answerUpColor.value = "red";
               counterWrong.value = withSpring(counterWrong.value + 1);
-              // Alert.alert("НЕВЕРНЫЙ ОТВЕТ");
+              setWrongAnswers((w) => [...w, WORD_TO_TEST]);
             }
           }}
           style={{
@@ -190,16 +194,13 @@ const Word = ({
             answerUpOpacity.value = withTiming(0);
             translateY.value = withSpring(-SIZE / 2 - DIVIDER_HEIGHT / 2);
             if (ANSWER_DOWN === ANSWER_RIGTH) {
-              Haptics.notificationAsync(
-                Haptics.NotificationFeedbackType.Success
-              );
               answerDownColor.value = "green";
               counterRight.value = withSpring(counterRight.value + 1);
             } else {
               Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
               answerDownColor.value = "red";
               counterWrong.value = withSpring(counterWrong.value + 1);
-              // Alert.alert("НЕВЕРНЫЙ ОТВЕТ");
+              setWrongAnswers((w) => [...w, WORD_TO_TEST]);
             }
           }}
           style={{
@@ -240,6 +241,12 @@ const Word = ({
             dividerOpacity.value = 1;
             answerUpOpacity.value = 1;
             answerDownOpacity.value = 1;
+            if (wordsLenght === 1) {
+              Alert.alert(
+                "words are done!",
+                `Your wrong answers are: ${wrongAnswers}`
+              );
+            }
           }}
         >
           <MaterialIcons name="navigate-next" size={54} color="black" />

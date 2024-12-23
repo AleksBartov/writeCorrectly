@@ -3,18 +3,15 @@ import { useWindowDimensions, View } from "react-native";
 import { CLASS_1, CLASS_1_LENGTH } from "@/DATA/CONSTANTS";
 import Word from "@/components/Word";
 import { Canvas, Path, Skia } from "@shopify/react-native-skia";
-import { useDebugValue, useState } from "react";
-import {
-  useDerivedValue,
-  useSharedValue,
-  withSpring,
-  withTiming,
-} from "react-native-reanimated";
+import { useState } from "react";
+import { useDerivedValue, useSharedValue } from "react-native-reanimated";
 
 export default function Index() {
   const { width } = useWindowDimensions();
   const [wordsArray, setWordsArray] = useState(CLASS_1);
+  const [wrongAnswers, setWrongAnswers] = useState([]);
   const CANVAS_HEIGHT = 10;
+  const STROKE_WIDTH = 10;
   const counterRight = useSharedValue(0);
   const counterWrong = useSharedValue(0);
   const percentage = useDerivedValue(() => {
@@ -28,11 +25,23 @@ export default function Index() {
       CANVAS_HEIGHT / 2
     }`
   );
+  const linePathGreen = Skia.Path.MakeFromSVGString(
+    `M ${width * 0.2 - STROKE_WIDTH} ${CANVAS_HEIGHT / 2} L ${width * 0.8} ${
+      CANVAS_HEIGHT / 2
+    }`
+  );
+  const linePathRed = Skia.Path.MakeFromSVGString(
+    `M ${width * 0.2} ${CANVAS_HEIGHT / 2} L ${width * 0.8 + STROKE_WIDTH} ${
+      CANVAS_HEIGHT / 2
+    }`
+  );
   return (
     <>
       <View style={{ flex: 1 }}>
         {wordsArray.map((w, i) => {
-          const RANDOM = Math.random().toFixed(2);
+          if (i > 0) {
+            return null;
+          }
           return (
             <Word
               word_test={w}
@@ -42,9 +51,11 @@ export default function Index() {
                 setWordsArray([...wordsArray]);
               }}
               index={i}
-              random={RANDOM}
               counterRight={counterRight}
               counterWrong={counterWrong}
+              wordsLenght={wordsArray.length}
+              wrongAnswers={wrongAnswers}
+              setWrongAnswers={setWrongAnswers}
             />
           );
         })}
@@ -60,7 +71,7 @@ export default function Index() {
         <Path
           style="stroke"
           path={linePath!}
-          strokeWidth={10}
+          strokeWidth={STROKE_WIDTH}
           color="rgba(0,0,0,0.2)"
           end={1}
           start={0}
@@ -68,21 +79,21 @@ export default function Index() {
         />
         <Path
           style="stroke"
-          path={linePath!}
-          strokeWidth={10}
+          path={linePathGreen!}
+          strokeWidth={STROKE_WIDTH}
           color="green"
           end={percentage}
           start={0}
-          strokeCap={"square"}
+          strokeCap={"round"}
         />
         <Path
           style="stroke"
-          path={linePath!}
-          strokeWidth={10}
+          path={linePathRed!}
+          strokeWidth={STROKE_WIDTH}
           color="red"
           end={1}
           start={redPercentage}
-          strokeCap={"square"}
+          strokeCap={"round"}
         />
       </Canvas>
     </>
