@@ -47,8 +47,14 @@ const Word = ({
 }: Props) => {
   const { width } = useWindowDimensions();
   const [done, setDone] = useState(false);
-  const { ANSWER_RIGTH, ANSWER_WRONG, TEST_POSITION, WORD_TO_TEST, RANDOM } =
-    word_test;
+  const {
+    ANSWER_RIGTH,
+    ANSWER_WRONG,
+    TEST_POSITION,
+    WORD_TO_TEST,
+    RANDOM,
+    DUAL,
+  } = word_test;
 
   const WORD_ARRAY = WORD_TO_TEST.split("");
 
@@ -64,13 +70,24 @@ const Word = ({
 
   const animStyle = useAnimatedStyle(() => {
     return {
-      transform: [
-        {
-          translateX:
-            -((WORD_ARRAY.length / 2) * SIZE - SIZE / 2) + SIZE * TEST_POSITION,
-        },
-        { translateY: translateY.value },
-      ],
+      transform: DUAL
+        ? [
+            {
+              translateX:
+                -((WORD_ARRAY.length / 2) * SIZE - SIZE / 2) +
+                SIZE * TEST_POSITION +
+                SIZE / 2,
+            },
+            { translateY: translateY.value },
+          ]
+        : [
+            {
+              translateX:
+                -((WORD_ARRAY.length / 2) * SIZE - SIZE / 2) +
+                SIZE * TEST_POSITION,
+            },
+            { translateY: translateY.value },
+          ],
     };
   });
 
@@ -125,104 +142,241 @@ const Word = ({
           </View>
         );
       })}
-      <Animated.View
-        style={[
-          {
-            position: "absolute",
-            width: SIZE,
-            height: SIZE * 2,
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "#ffffff",
-          },
-          animStyle,
-        ]}
-      >
-        <TouchableOpacity
-          onPress={() => {
-            if (done) return;
-            setDone(true);
-            dividerOpacity.value = withTiming(0);
-            answerDownOpacity.value = withTiming(0);
-            translateY.value = withSpring(SIZE / 2 + DIVIDER_HEIGHT / 2);
-            if (ANSWER_UP === ANSWER_RIGTH) {
-              answerUpColor.value = "green";
-
-              counterRight.value = withSpring(counterRight.value + 1);
-            } else {
-              Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-              answerUpColor.value = "red";
-              counterWrong.value = withSpring(counterWrong.value + 1);
-              setWrongAnswers((w) => [...w, WORD_TO_TEST]);
-            }
-          }}
-          style={{
-            width: SIZE,
-            height: SIZE,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Animated.Text
-            style={[
-              {
-                fontSize: SIZE * 0.68,
-                fontFamily: "Nunito_800ExtraBold",
-              },
-              reanAnswerUpStyle,
-            ]}
-          >
-            {ANSWER_UP}
-          </Animated.Text>
-        </TouchableOpacity>
+      {DUAL ? (
         <Animated.View
           style={[
             {
-              width: SIZE,
-              height: DIVIDER_HEIGHT,
-              borderRadius: 3.5,
-              backgroundColor: "rgba(0,0,0,0.2)",
+              position: "absolute",
+              width: SIZE * 2,
+              height: SIZE * 2,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#ffffff",
             },
-            reanDividerStyle,
+            animStyle,
           ]}
-        ></Animated.View>
-        <TouchableOpacity
-          onPress={() => {
-            if (done) return;
-            setDone(true);
-            dividerOpacity.value = withTiming(0);
-            answerUpOpacity.value = withTiming(0);
-            translateY.value = withSpring(-SIZE / 2 - DIVIDER_HEIGHT / 2);
-            if (ANSWER_DOWN === ANSWER_RIGTH) {
-              answerDownColor.value = "green";
-              counterRight.value = withSpring(counterRight.value + 1);
-            } else {
-              Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-              answerDownColor.value = "red";
-              counterWrong.value = withSpring(counterWrong.value + 1);
-              setWrongAnswers((w) => [...w, WORD_TO_TEST]);
-            }
-          }}
-          style={{
-            width: SIZE,
-            height: SIZE,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
         >
-          <Animated.Text
+          <TouchableOpacity
+            onPress={() => {
+              if (done) return;
+              setDone(true);
+              dividerOpacity.value = withTiming(0);
+              answerDownOpacity.value = withTiming(0);
+              translateY.value = withSpring(SIZE / 2 + DIVIDER_HEIGHT / 2);
+              if (ANSWER_UP === ANSWER_RIGTH) {
+                answerUpColor.value = "green";
+
+                counterRight.value = withSpring(counterRight.value + 1);
+              } else {
+                Haptics.notificationAsync(
+                  Haptics.NotificationFeedbackType.Error
+                );
+                answerUpColor.value = "red";
+                counterWrong.value = withSpring(counterWrong.value + 1);
+                setWrongAnswers((w) => [...w, WORD_TO_TEST]);
+              }
+            }}
+            style={{
+              width: SIZE * 2,
+              height: SIZE,
+              justifyContent: "space-around",
+              alignItems: "center",
+              flexDirection: "row",
+            }}
+          >
+            <Animated.Text
+              style={[
+                {
+                  fontSize: SIZE * 0.68,
+                  fontFamily: "Nunito_800ExtraBold",
+                },
+                reanAnswerUpStyle,
+              ]}
+            >
+              {ANSWER_UP[0]}
+            </Animated.Text>
+            {ANSWER_UP[1] && (
+              <Animated.Text
+                style={[
+                  {
+                    fontSize: SIZE * 0.68,
+                    fontFamily: "Nunito_800ExtraBold",
+                  },
+                  reanAnswerUpStyle,
+                ]}
+              >
+                {ANSWER_UP[1]}
+              </Animated.Text>
+            )}
+          </TouchableOpacity>
+          <Animated.View
             style={[
               {
-                fontSize: SIZE * 0.68,
-                fontFamily: "Nunito_800ExtraBold",
+                width: SIZE * 1.5,
+                height: DIVIDER_HEIGHT,
+                borderRadius: 3.5,
+                backgroundColor: "rgba(0,0,0,0.2)",
               },
-              reanAnswerDownStyle,
+              reanDividerStyle,
             ]}
+          ></Animated.View>
+          <TouchableOpacity
+            onPress={() => {
+              if (done) return;
+              setDone(true);
+              dividerOpacity.value = withTiming(0);
+              answerUpOpacity.value = withTiming(0);
+              translateY.value = withSpring(-SIZE / 2 - DIVIDER_HEIGHT / 2);
+              if (ANSWER_DOWN === ANSWER_RIGTH) {
+                answerDownColor.value = "green";
+                counterRight.value = withSpring(counterRight.value + 1);
+              } else {
+                Haptics.notificationAsync(
+                  Haptics.NotificationFeedbackType.Error
+                );
+                answerDownColor.value = "red";
+                counterWrong.value = withSpring(counterWrong.value + 1);
+                setWrongAnswers((w) => [...w, WORD_TO_TEST]);
+              }
+            }}
+            style={{
+              width: SIZE * 2,
+              height: SIZE,
+              justifyContent: "space-around",
+              alignItems: "center",
+              flexDirection: "row",
+            }}
           >
-            {ANSWER_DOWN}
-          </Animated.Text>
-        </TouchableOpacity>
-      </Animated.View>
+            <Animated.Text
+              style={[
+                {
+                  fontSize: SIZE * 0.68,
+                  fontFamily: "Nunito_800ExtraBold",
+                },
+                reanAnswerDownStyle,
+              ]}
+            >
+              {ANSWER_DOWN[0]}
+            </Animated.Text>
+            {ANSWER_DOWN[1] && (
+              <Animated.Text
+                style={[
+                  {
+                    fontSize: SIZE * 0.68,
+                    fontFamily: "Nunito_800ExtraBold",
+                  },
+                  reanAnswerDownStyle,
+                ]}
+              >
+                {ANSWER_DOWN[1]}
+              </Animated.Text>
+            )}
+          </TouchableOpacity>
+        </Animated.View>
+      ) : (
+        <Animated.View
+          style={[
+            {
+              position: "absolute",
+              width: SIZE,
+              height: SIZE * 2,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#ffffff",
+            },
+            animStyle,
+          ]}
+        >
+          <TouchableOpacity
+            onPress={() => {
+              if (done) return;
+              setDone(true);
+              dividerOpacity.value = withTiming(0);
+              answerDownOpacity.value = withTiming(0);
+              translateY.value = withSpring(SIZE / 2 + DIVIDER_HEIGHT / 2);
+              if (ANSWER_UP === ANSWER_RIGTH) {
+                answerUpColor.value = "green";
+
+                counterRight.value = withSpring(counterRight.value + 1);
+              } else {
+                Haptics.notificationAsync(
+                  Haptics.NotificationFeedbackType.Error
+                );
+                answerUpColor.value = "red";
+                counterWrong.value = withSpring(counterWrong.value + 1);
+                setWrongAnswers((w) => [...w, WORD_TO_TEST]);
+              }
+            }}
+            style={{
+              width: SIZE,
+              height: SIZE,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Animated.Text
+              style={[
+                {
+                  fontSize: SIZE * 0.68,
+                  fontFamily: "Nunito_800ExtraBold",
+                },
+                reanAnswerUpStyle,
+              ]}
+            >
+              {ANSWER_UP}
+            </Animated.Text>
+          </TouchableOpacity>
+          <Animated.View
+            style={[
+              {
+                width: SIZE,
+                height: DIVIDER_HEIGHT,
+                borderRadius: 3.5,
+                backgroundColor: "rgba(0,0,0,0.2)",
+              },
+              reanDividerStyle,
+            ]}
+          ></Animated.View>
+          <TouchableOpacity
+            onPress={() => {
+              if (done) return;
+              setDone(true);
+              dividerOpacity.value = withTiming(0);
+              answerUpOpacity.value = withTiming(0);
+              translateY.value = withSpring(-SIZE / 2 - DIVIDER_HEIGHT / 2);
+              if (ANSWER_DOWN === ANSWER_RIGTH) {
+                answerDownColor.value = "green";
+                counterRight.value = withSpring(counterRight.value + 1);
+              } else {
+                Haptics.notificationAsync(
+                  Haptics.NotificationFeedbackType.Error
+                );
+                answerDownColor.value = "red";
+                counterWrong.value = withSpring(counterWrong.value + 1);
+                setWrongAnswers((w) => [...w, WORD_TO_TEST]);
+              }
+            }}
+            style={{
+              width: SIZE,
+              height: SIZE,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Animated.Text
+              style={[
+                {
+                  fontSize: SIZE * 0.68,
+                  fontFamily: "Nunito_800ExtraBold",
+                },
+                reanAnswerDownStyle,
+              ]}
+            >
+              {ANSWER_DOWN}
+            </Animated.Text>
+          </TouchableOpacity>
+        </Animated.View>
+      )}
       {done && (
         <TouchableOpacity
           style={{
