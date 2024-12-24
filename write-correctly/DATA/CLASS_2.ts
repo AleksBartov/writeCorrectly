@@ -482,6 +482,46 @@ const C_2: Word_type[] = [
     ANSWER_WRONG: "С",
     RANDOM: +Math.random().toFixed(2),
   },
+  {
+    DUAL: true,
+    WORD_TO_TEST: "ПАССАЖИР",
+    TEST_POSITION: 2,
+    ANSWER_RIGTH: "СС",
+    ANSWER_WRONG: "С",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: true,
+    WORD_TO_TEST: "ПЕРРОН",
+    TEST_POSITION: 2,
+    ANSWER_RIGTH: "РР",
+    ANSWER_WRONG: "Р",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: true,
+    WORD_TO_TEST: "СУББОТА",
+    TEST_POSITION: 2,
+    ANSWER_RIGTH: "ББ",
+    ANSWER_WRONG: "Б",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: true,
+    WORD_TO_TEST: "СУФФИКС",
+    TEST_POSITION: 2,
+    ANSWER_RIGTH: "ФФ",
+    ANSWER_WRONG: "Ф",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: true,
+    WORD_TO_TEST: "ЧУВСТВОВАТЬ",
+    TEST_POSITION: 2,
+    ANSWER_RIGTH: "ВС",
+    ANSWER_WRONG: "С",
+    RANDOM: +Math.random().toFixed(2),
+  },
 ];
 
 export const CLASS_2_LENGTH = C_2.length;
