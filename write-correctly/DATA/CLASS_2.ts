@@ -310,7 +310,7 @@ const C_2: Word_type[] = [
     DUAL: false,
     WORD_TO_TEST: "ОБЕЗЬЯНА",
     TEST_POSITION: 2,
-    ANSWER_RIGTH: "О",
+    ANSWER_RIGTH: "Е",
     ANSWER_WRONG: "И",
     RANDOM: +Math.random().toFixed(2),
   },

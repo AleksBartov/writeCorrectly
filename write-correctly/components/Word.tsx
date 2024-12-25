@@ -9,6 +9,7 @@ import {
 import React, { useState } from "react";
 import Animated, {
   FadeIn,
+  SlideInUp,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
