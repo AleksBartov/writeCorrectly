@@ -8,8 +8,6 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import Animated, {
-  FadeIn,
-  SlideInUp,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
@@ -19,8 +17,8 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 import * as Haptics from "expo-haptics";
 import { SIZE } from "@/DATA/SIZES";
-import { Word_type } from "@/DATA/CONSTANTS";
 import { SharedValueType } from "@shopify/react-native-skia";
+import { Word_type } from "@/utils";
 
 type Props = {
   word_test: Word_type;
@@ -55,6 +53,7 @@ const Word = ({
     WORD_TO_TEST,
     RANDOM,
     DUAL,
+    CORRECT_WORD,
   } = word_test;
 
   const WORD_ARRAY = WORD_TO_TEST.split("");
@@ -178,7 +177,7 @@ const Word = ({
                 );
                 answerUpColor.value = "red";
                 counterWrong.value = withSpring(counterWrong.value + 1);
-                setWrongAnswers((w) => [...w, WORD_TO_TEST]);
+                setWrongAnswers((w) => [...w, CORRECT_WORD]);
               }
             }}
             style={{
@@ -241,7 +240,7 @@ const Word = ({
                 );
                 answerDownColor.value = "red";
                 counterWrong.value = withSpring(counterWrong.value + 1);
-                setWrongAnswers((w) => [...w, WORD_TO_TEST]);
+                setWrongAnswers((w) => [...w, CORRECT_WORD]);
               }
             }}
             style={{
@@ -309,7 +308,7 @@ const Word = ({
                 );
                 answerUpColor.value = "red";
                 counterWrong.value = withSpring(counterWrong.value + 1);
-                setWrongAnswers((w) => [...w, WORD_TO_TEST]);
+                setWrongAnswers((w) => [...w, CORRECT_WORD]);
               }
             }}
             style={{
@@ -358,7 +357,7 @@ const Word = ({
                 );
                 answerDownColor.value = "red";
                 counterWrong.value = withSpring(counterWrong.value + 1);
-                setWrongAnswers((w) => [...w, WORD_TO_TEST]);
+                setWrongAnswers((w) => [...w, CORRECT_WORD]);
               }
             }}
             style={{

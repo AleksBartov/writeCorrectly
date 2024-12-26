@@ -3,6 +3,7 @@ import { shuffle, Word_type } from "@/utils";
 const C_3: Word_type[] = [
   {
     DUAL: false,
+    CORRECT_WORD: "АВТОБУС",
     WORD_TO_TEST: "АВТОБУС",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "В",
@@ -11,6 +12,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "АПТЕКА",
     WORD_TO_TEST: "АПТЕКА",
     TEST_POSITION: 0,
     ANSWER_RIGTH: "А",
@@ -19,6 +21,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "АККУРАТНО",
     WORD_TO_TEST: "АККУРАТНО",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "КК",
@@ -27,6 +30,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "БЕРЕГ",
     WORD_TO_TEST: "БЕРЕГ",
     TEST_POSITION: 4,
     ANSWER_RIGTH: "Г",
@@ -35,6 +39,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "БОЛОТО",
     WORD_TO_TEST: "БОЛОТО",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -43,6 +48,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "БИБЛИОТЕКА",
     WORD_TO_TEST: "БИБЛИОТЕКА",
     TEST_POSITION: 4,
     ANSWER_RIGTH: "И",
@@ -51,6 +57,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ВИНЕГРЕТ",
     WORD_TO_TEST: "ВИНЕГРЕТ",
     TEST_POSITION: 3,
     ANSWER_RIGTH: "Е",
@@ -59,6 +66,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ВОКРУГ",
     WORD_TO_TEST: "ВОКРУГ",
     TEST_POSITION: 5,
     ANSWER_RIGTH: "Г",
@@ -67,6 +75,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ВОСКРЕСЕНЬЕ",
     WORD_TO_TEST: "ВОСКРЕСЕНЬЕ",
     TEST_POSITION: 5,
     ANSWER_RIGTH: "Е",
@@ -75,6 +84,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ВТОРНИК",
     WORD_TO_TEST: "ВТОРНИК",
     TEST_POSITION: 6,
     ANSWER_RIGTH: "К",
@@ -83,6 +93,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ВОСТОК",
     WORD_TO_TEST: "ВОСТОК",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -91,6 +102,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ГВОЗДИКА",
     WORD_TO_TEST: "ГВОЗДИКА",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "О",
@@ -99,6 +111,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ГОРОХ",
     WORD_TO_TEST: "ГОРОХ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -107,6 +120,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ГЕРОЙ",
     WORD_TO_TEST: "ГЕРОЙ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "Е",
@@ -115,6 +129,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ГОРЯЧИЙ",
     WORD_TO_TEST: "ГОРЯЧИЙ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -123,6 +138,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ЖЕЛАТЬ",
     WORD_TO_TEST: "ЖЕЛАТЬ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "Е",
@@ -131,6 +147,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ЖИВОТНОЕ",
     WORD_TO_TEST: "ЖИВОТНОЕ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "И",
@@ -139,6 +156,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ЗАВТРАК",
     WORD_TO_TEST: "ЗАВТРАК",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "В",
@@ -147,6 +165,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ЗАРЯ",
     WORD_TO_TEST: "ЗАРЯ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "А",
@@ -155,6 +174,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ЗАПАД",
     WORD_TO_TEST: "ЗАПАД",
     TEST_POSITION: 3,
     ANSWER_RIGTH: "А",
@@ -163,6 +183,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ИНТЕРЕСНЫЙ",
     WORD_TO_TEST: "ИНТЕРЕСНЫЙ",
     TEST_POSITION: 3,
     ANSWER_RIGTH: "Е",
@@ -171,6 +192,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "КАРТОФЕЛЬ",
     WORD_TO_TEST: "КАРТОФЕЛЬ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "А",
@@ -179,6 +201,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "КОЛЛЕКТИВ",
     WORD_TO_TEST: "КОЛЛЕКТИВ",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "ЛЛ",
@@ -187,6 +210,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "КОМБАЙН",
     WORD_TO_TEST: "КОМБАЙН",
     TEST_POSITION: 5,
     ANSWER_RIGTH: "Й",
@@ -195,6 +219,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "КОМПЬЮТЕР",
     WORD_TO_TEST: "КОМПЬЮТЕР",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -203,6 +228,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "КОСМОС",
     WORD_TO_TEST: "КОСМОС",
     TEST_POSITION: 4,
     ANSWER_RIGTH: "О",
@@ -211,6 +237,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "КРЕМЕНЬ",
     WORD_TO_TEST: "КРЕМЕНЬ",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "Е",
@@ -219,6 +246,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "КОЛЛЕКЦИЯ",
     WORD_TO_TEST: "КОЛЛЕКЦИЯ",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "ЛЛ",
@@ -227,6 +255,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ЛАГЕРЬ",
     WORD_TO_TEST: "ЛАГЕРЬ",
     TEST_POSITION: 3,
     ANSWER_RIGTH: "Е",
@@ -235,6 +264,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "ЛЕСТНИЦА",
     WORD_TO_TEST: "ЛЕСТНИЦА",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "СТ",
@@ -243,6 +273,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "МЕТАЛЛ",
     WORD_TO_TEST: "МЕТАЛЛ",
     TEST_POSITION: 4,
     ANSWER_RIGTH: "ЛЛ",
@@ -251,6 +282,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ОДУВАНЧИК",
     WORD_TO_TEST: "ОДУВАНЧИК",
     TEST_POSITION: 7,
     ANSWER_RIGTH: "И",
@@ -259,6 +291,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ОДНАЖДЫ",
     WORD_TO_TEST: "ОДНАЖДЫ",
     TEST_POSITION: 0,
     ANSWER_RIGTH: "О",
@@ -267,6 +300,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ОКОЛО",
     WORD_TO_TEST: "ОКОЛО",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "О",
@@ -275,6 +309,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ПЕСОК",
     WORD_TO_TEST: "ПЕСОК",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "Е",
@@ -283,6 +318,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ПОБЕДА",
     WORD_TO_TEST: "ПОБЕДА",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -291,6 +327,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ПОРОША",
     WORD_TO_TEST: "ПОРОША",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -299,6 +336,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ПРИВЕТЛИВО",
     WORD_TO_TEST: "ПРИВЕТЛИВО",
     TEST_POSITION: 7,
     ANSWER_RIGTH: "И",
@@ -307,6 +345,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ПЕТРУШКА",
     WORD_TO_TEST: "ПЕТРУШКА",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "Е",
@@ -315,6 +354,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ПЛАТФОРМА",
     WORD_TO_TEST: "ПЛАТФОРМА",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "А",
@@ -323,6 +363,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ПОТОМ",
     WORD_TO_TEST: "ПОТОМ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -331,6 +372,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "ПРАЗДНИК",
     WORD_TO_TEST: "ПРАЗДНИК",
     TEST_POSITION: 3,
     ANSWER_RIGTH: "ЗД",
@@ -339,6 +381,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ПШЕНИЦА",
     WORD_TO_TEST: "ПШЕНИЦА",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "Е",
@@ -347,6 +390,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "РАКЕТА",
     WORD_TO_TEST: "РАКЕТА",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "А",
@@ -355,6 +399,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "РАССТОЯНИЕ",
     WORD_TO_TEST: "РАССТОЯНИЕ",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "СС",
@@ -363,6 +408,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "РЯБИНА",
     WORD_TO_TEST: "РЯБИНА",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "Я",
@@ -371,6 +417,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "РАССКАЗ",
     WORD_TO_TEST: "РАССКАЗ",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "СС",
@@ -379,6 +426,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "РАСТЕНИЕ",
     WORD_TO_TEST: "РАСТЕНИЕ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "А",
@@ -387,6 +435,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "САМОЛЁТ",
     WORD_TO_TEST: "САМОЛЁТ",
     TEST_POSITION: 3,
     ANSWER_RIGTH: "О",
@@ -395,6 +444,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "СИРЕНЬ",
     WORD_TO_TEST: "СИРЕНЬ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "И",
@@ -403,6 +453,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "СОЛОВЕЙ",
     WORD_TO_TEST: "СОЛОВЕЙ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -411,6 +462,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "СОЛДАТ",
     WORD_TO_TEST: "СОЛДАТ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -419,6 +471,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "СОЛОМА",
     WORD_TO_TEST: "СОЛОМА",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "О",
@@ -427,6 +480,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "СТОЛИЦА",
     WORD_TO_TEST: "СТОЛИЦА",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "О",
@@ -435,6 +489,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ТРАМВАЙ",
     WORD_TO_TEST: "ТРАМВАЙ",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "А",
@@ -443,6 +498,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ТРАКТОР",
     WORD_TO_TEST: "ТРАКТОР",
     TEST_POSITION: 5,
     ANSWER_RIGTH: "О",
@@ -451,6 +507,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "ТРОЛЛЕЙБУС",
     WORD_TO_TEST: "ТРОЛЛЕЙБУС",
     TEST_POSITION: 3,
     ANSWER_RIGTH: "ЛЛ",
@@ -459,6 +516,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ФУТБОЛ",
     WORD_TO_TEST: "ФУТБОЛ",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "Т",
@@ -467,6 +525,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "ХОККЕЙ",
     WORD_TO_TEST: "ХОККЕЙ",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "КК",
@@ -475,6 +534,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "ЧУВСТВО",
     WORD_TO_TEST: "ЧУВСТВО",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "ВС",
@@ -483,6 +543,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ЧЁРНЫЙ",
     WORD_TO_TEST: "ЧЁРНЫЙ",
     TEST_POSITION: 1,
     ANSWER_RIGTH: "Ё",
@@ -491,6 +552,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: true,
+    CORRECT_WORD: "ШОССЕ",
     WORD_TO_TEST: "ШОССЕ",
     TEST_POSITION: 2,
     ANSWER_RIGTH: "СС",
@@ -499,6 +561,7 @@ const C_3: Word_type[] = [
   },
   {
     DUAL: false,
+    CORRECT_WORD: "ЭКСКУРСИЯ",
     WORD_TO_TEST: "ЭКСКУРСИЯ",
     TEST_POSITION: 0,
     ANSWER_RIGTH: "Э",

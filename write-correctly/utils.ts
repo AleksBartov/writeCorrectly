@@ -1,5 +1,6 @@
 export interface Word_type {
   DUAL: boolean;
+  CORRECT_WORD: string;
   WORD_TO_TEST: string;
   TEST_POSITION: number;
   ANSWER_RIGTH: string;

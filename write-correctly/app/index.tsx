@@ -4,21 +4,21 @@ import Word from "@/components/Word";
 import { Canvas, Path, Skia } from "@shopify/react-native-skia";
 import { useState } from "react";
 import { useDerivedValue, useSharedValue } from "react-native-reanimated";
-import { CLASS_3, CLASS_3_LENGTH } from "@/DATA/CLASS_3";
+import { CLASS_4, CLASS_4_LENGTH } from "@/DATA/CLASS_4";
 
 export default function Index() {
   const { width } = useWindowDimensions();
-  const [wordsArray, setWordsArray] = useState(CLASS_3);
+  const [wordsArray, setWordsArray] = useState(CLASS_4);
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const CANVAS_HEIGHT = 10;
   const STROKE_WIDTH = 10;
   const counterRight = useSharedValue(0);
   const counterWrong = useSharedValue(0);
   const percentage = useDerivedValue(() => {
-    return counterRight.value / CLASS_3_LENGTH;
+    return counterRight.value / CLASS_4_LENGTH;
   });
   const redPercentage = useDerivedValue(() => {
-    return 1 - counterWrong.value / CLASS_3_LENGTH;
+    return 1 - counterWrong.value / CLASS_4_LENGTH;
   });
   const linePath = Skia.Path.MakeFromSVGString(
     `M ${width * 0.2} ${CANVAS_HEIGHT / 2} L ${width * 0.8} ${
