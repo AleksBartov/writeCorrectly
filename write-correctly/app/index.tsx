@@ -1,24 +1,56 @@
-import { useWindowDimensions, View } from "react-native";
+import { TouchableOpacity, useWindowDimensions, View } from "react-native";
 
 import Word from "@/components/Word";
 import { Canvas, Path, Skia } from "@shopify/react-native-skia";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDerivedValue, useSharedValue } from "react-native-reanimated";
 import { CLASS_4, CLASS_4_LENGTH } from "@/DATA/CLASS_4";
+import Octicons from "@expo/vector-icons/Octicons";
+import { useRouter } from "expo-router";
+import { ThemeContext } from "./_layout";
+import { CLASS_1, CLASS_1_LENGTH } from "@/DATA/CLASS_1";
+import { CLASS_2, CLASS_2_LENGTH } from "@/DATA/CLASS_2";
+import { CLASS_3, CLASS_3_LENGTH } from "@/DATA/CLASS_3";
 
 export default function Index() {
+  const [theme, setTheme] = useContext(ThemeContext);
+  const router = useRouter();
   const { width } = useWindowDimensions();
-  const [wordsArray, setWordsArray] = useState(CLASS_4);
+  const [wordsArray, setWordsArray] = useState(
+    theme === "CLASS_2"
+      ? CLASS_2
+      : theme === "CLASS_3"
+      ? CLASS_3
+      : theme === "CLASS_4"
+      ? CLASS_4
+      : CLASS_1
+  );
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const CANVAS_HEIGHT = 10;
   const STROKE_WIDTH = 10;
   const counterRight = useSharedValue(0);
   const counterWrong = useSharedValue(0);
   const percentage = useDerivedValue(() => {
-    return counterRight.value / CLASS_4_LENGTH;
+    const LENGTH =
+      theme === "CLASS_2"
+        ? CLASS_2_LENGTH
+        : theme === "CLASS_3"
+        ? CLASS_3_LENGTH
+        : theme === "CLASS_4"
+        ? CLASS_4_LENGTH
+        : CLASS_1_LENGTH;
+    return counterRight.value / LENGTH;
   });
   const redPercentage = useDerivedValue(() => {
-    return 1 - counterWrong.value / CLASS_4_LENGTH;
+    const LENGTH =
+      theme === "CLASS_2"
+        ? CLASS_2_LENGTH
+        : theme === "CLASS_3"
+        ? CLASS_3_LENGTH
+        : theme === "CLASS_4"
+        ? CLASS_4_LENGTH
+        : CLASS_1_LENGTH;
+    return 1 - counterWrong.value / LENGTH;
   });
   const linePath = Skia.Path.MakeFromSVGString(
     `M ${width * 0.2} ${CANVAS_HEIGHT / 2} L ${width * 0.8} ${
@@ -35,6 +67,21 @@ export default function Index() {
       CANVAS_HEIGHT / 2
     }`
   );
+
+  useEffect(() => {
+    setWordsArray(
+      theme === "CLASS_2"
+        ? CLASS_2
+        : theme === "CLASS_3"
+        ? CLASS_3
+        : theme === "CLASS_4"
+        ? CLASS_4
+        : CLASS_1
+    );
+    counterRight.value = 0;
+    counterWrong.value = 0;
+  }, [theme]);
+
   return (
     <>
       <View style={{ flex: 1 }}>
@@ -60,6 +107,12 @@ export default function Index() {
           );
         })}
       </View>
+      <TouchableOpacity
+        onPress={() => router.push("/classes")}
+        style={{ position: "absolute", top: 20, left: 50 }}
+      >
+        <Octicons name="number" size={44} color="black" />
+      </TouchableOpacity>
       <Canvas
         style={{
           position: "absolute",
