@@ -138,7 +138,11 @@ const Word = ({
                 fontFamily: "Nunito_800ExtraBold",
               }}
             >
-              {l}
+              {i === TEST_POSITION
+                ? " "
+                : i === TEST_POSITION + 1 && DUAL
+                ? " "
+                : l}
             </Text>
           </View>
         );
