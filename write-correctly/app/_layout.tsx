@@ -13,7 +13,7 @@ SplashScreen.preventAutoHideAsync();
 export const ThemeContext = createContext();
 
 export default function RootLayout() {
-  const [theme, setTheme] = useState("CLASS_4");
+  const [theme, setTheme] = useState("CLASS_1");
   let [fontsLoaded] = useFonts({
     Nunito_500Medium,
     Nunito_800ExtraBold,

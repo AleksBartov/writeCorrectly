@@ -30,6 +30,8 @@ type Props = {
   wordsLenght: number;
   wrongAnswers: string[];
   setWrongAnswers: any;
+  rightAnswers: string[];
+  setRightAnswers: any;
 };
 
 const DIVIDER_HEIGHT = 7;
@@ -43,6 +45,7 @@ const Word = ({
   wordsLenght,
   wrongAnswers,
   setWrongAnswers,
+  setRightAnswers,
 }: Props) => {
   const { width } = useWindowDimensions();
   const [done, setDone] = useState(false);
@@ -171,13 +174,14 @@ const Word = ({
                 answerUpColor.value = "green";
 
                 counterRight.value = withSpring(counterRight.value + 1);
+                setRightAnswers((w: string) => [...w, CORRECT_WORD]);
               } else {
                 Haptics.notificationAsync(
                   Haptics.NotificationFeedbackType.Error
                 );
                 answerUpColor.value = "red";
                 counterWrong.value = withSpring(counterWrong.value + 1);
-                setWrongAnswers((w) => [...w, CORRECT_WORD]);
+                setWrongAnswers((w: string) => [...w, CORRECT_WORD]);
               }
             }}
             style={{
@@ -234,13 +238,14 @@ const Word = ({
               if (ANSWER_DOWN === ANSWER_RIGTH) {
                 answerDownColor.value = "green";
                 counterRight.value = withSpring(counterRight.value + 1);
+                setRightAnswers((w: string) => [...w, CORRECT_WORD]);
               } else {
                 Haptics.notificationAsync(
                   Haptics.NotificationFeedbackType.Error
                 );
                 answerDownColor.value = "red";
                 counterWrong.value = withSpring(counterWrong.value + 1);
-                setWrongAnswers((w) => [...w, CORRECT_WORD]);
+                setWrongAnswers((w: string) => [...w, CORRECT_WORD]);
               }
             }}
             style={{
@@ -300,15 +305,15 @@ const Word = ({
               translateY.value = withSpring(SIZE / 2 + DIVIDER_HEIGHT / 2);
               if (ANSWER_UP === ANSWER_RIGTH) {
                 answerUpColor.value = "green";
-
                 counterRight.value = withSpring(counterRight.value + 1);
+                setRightAnswers((w: string) => [...w, CORRECT_WORD]);
               } else {
                 Haptics.notificationAsync(
                   Haptics.NotificationFeedbackType.Error
                 );
                 answerUpColor.value = "red";
                 counterWrong.value = withSpring(counterWrong.value + 1);
-                setWrongAnswers((w) => [...w, CORRECT_WORD]);
+                setWrongAnswers((w: string) => [...w, CORRECT_WORD]);
               }
             }}
             style={{
@@ -351,13 +356,14 @@ const Word = ({
               if (ANSWER_DOWN === ANSWER_RIGTH) {
                 answerDownColor.value = "green";
                 counterRight.value = withSpring(counterRight.value + 1);
+                setRightAnswers((w: string) => [...w, CORRECT_WORD]);
               } else {
                 Haptics.notificationAsync(
                   Haptics.NotificationFeedbackType.Error
                 );
                 answerDownColor.value = "red";
                 counterWrong.value = withSpring(counterWrong.value + 1);
-                setWrongAnswers((w) => [...w, CORRECT_WORD]);
+                setWrongAnswers((w: string) => [...w, CORRECT_WORD]);
               }
             }}
             style={{

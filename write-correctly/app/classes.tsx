@@ -26,7 +26,9 @@ const classes = () => {
           router.back();
         }}
       >
-        <Text style={{ fontSize: 50 }}>1 класс</Text>
+        <Text style={{ fontSize: 38, fontFamily: "Nunito_800ExtraBold" }}>
+          1 класс
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
@@ -34,7 +36,9 @@ const classes = () => {
           router.back();
         }}
       >
-        <Text style={{ fontSize: 50 }}>2 класс</Text>
+        <Text style={{ fontSize: 38, fontFamily: "Nunito_800ExtraBold" }}>
+          2 класс
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
@@ -42,7 +46,9 @@ const classes = () => {
           router.back();
         }}
       >
-        <Text style={{ fontSize: 50 }}>3 класс</Text>
+        <Text style={{ fontSize: 38, fontFamily: "Nunito_800ExtraBold" }}>
+          3 класс
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
@@ -50,7 +56,9 @@ const classes = () => {
           router.back();
         }}
       >
-        <Text style={{ fontSize: 50 }}>4 класс</Text>
+        <Text style={{ fontSize: 38, fontFamily: "Nunito_800ExtraBold" }}>
+          4 класс
+        </Text>
       </TouchableOpacity>
     </ScrollView>
   );

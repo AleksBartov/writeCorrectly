@@ -1,7 +1,10 @@
 import { StyleSheet, Text, useWindowDimensions, View } from "react-native";
 import React, { useState } from "react";
 import Word from "./Word";
-import { useDerivedValue, useSharedValue } from "react-native-reanimated";
+import Animated, {
+  useDerivedValue,
+  useSharedValue,
+} from "react-native-reanimated";
 import { Canvas, Path, Skia } from "@shopify/react-native-skia";
 
 const StackWords = ({ classToTest, classLenght }) => {
@@ -9,6 +12,7 @@ const StackWords = ({ classToTest, classLenght }) => {
   const [wordsArray, setWordsArray] = useState(classToTest);
 
   const [wrongAnswers, setWrongAnswers] = useState([]);
+  const [rightAnswers, setRightAnswers] = useState([]);
   const CANVAS_HEIGHT = 10;
   const STROKE_WIDTH = 10;
   const counterRight = useSharedValue(0);
@@ -55,10 +59,43 @@ const StackWords = ({ classToTest, classLenght }) => {
               wordsLenght={wordsArray.length}
               wrongAnswers={wrongAnswers}
               setWrongAnswers={setWrongAnswers}
+              setRightAnswers={setRightAnswers}
             />
           );
         })}
       </View>
+      <Animated.View
+        style={{
+          position: "absolute",
+          right: width / 2 - width * 0.3,
+        }}
+      >
+        <Animated.Text
+          style={{
+            fontSize: 12,
+            opacity: 0.7,
+            fontFamily: "Nunito_800ExtraBold",
+          }}
+        >
+          {wrongAnswers.length}
+        </Animated.Text>
+      </Animated.View>
+      <Animated.View
+        style={{
+          position: "absolute",
+          right: width / 2 + width * 0.3 - 6,
+        }}
+      >
+        <Animated.Text
+          style={{
+            fontSize: 12,
+            opacity: 0.7,
+            fontFamily: "Nunito_800ExtraBold",
+          }}
+        >
+          {rightAnswers.length}
+        </Animated.Text>
+      </Animated.View>
       <Canvas
         style={{
           position: "absolute",
