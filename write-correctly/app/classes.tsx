@@ -70,6 +70,16 @@ const classes = () => {
           5 класс
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          setTheme("CLASS_6");
+          router.back();
+        }}
+      >
+        <Text style={{ fontSize: 38, fontFamily: "Nunito_800ExtraBold" }}>
+          6 класс
+        </Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 };

@@ -11,6 +11,7 @@ import { CLASS_3, CLASS_3_LENGTH } from "@/DATA/CLASS_3";
 import StackWords from "@/components/StackWords";
 import Animated from "react-native-reanimated";
 import { CLASS_5, CLASS_5_LENGTH } from "@/DATA/CLASS_5";
+import { CLASS_6, CLASS_6_LENGTH } from "@/DATA/CLASS_6";
 
 export default function Index() {
   const [theme, setTheme] = useContext(ThemeContext);
@@ -32,6 +33,9 @@ export default function Index() {
       )}
       {theme === "CLASS_5" && (
         <StackWords classToTest={CLASS_5} classLenght={CLASS_5_LENGTH} />
+      )}
+      {theme === "CLASS_6" && (
+        <StackWords classToTest={CLASS_6} classLenght={CLASS_6_LENGTH} />
       )}
       <TouchableOpacity
         onPress={() => router.push("/classes")}
