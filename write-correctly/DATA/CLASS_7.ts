@@ -1,0 +1,98 @@
+import { shuffle, Word_type } from "@/utils";
+
+const C_7: Word_type[] = [
+  {
+    DUAL: true,
+    CORRECT_WORD: "АРТИЛЛЕРИЯ",
+    WORD_TO_TEST: "АРТИЛЛЕРИЯ",
+    TEST_POSITION: 4,
+    ANSWER_RIGTH: "ЛЛ",
+    ANSWER_WRONG: "Л",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: false,
+    CORRECT_WORD: "АКВАЛАНГ",
+    WORD_TO_TEST: "АКВАЛАНГ",
+    TEST_POSITION: 3,
+    ANSWER_RIGTH: "А",
+    ANSWER_WRONG: "О",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: false,
+    CORRECT_WORD: "АКВАРИУМ",
+    WORD_TO_TEST: "АКВАРИУМ",
+    TEST_POSITION: 5,
+    ANSWER_RIGTH: "И",
+    ANSWER_WRONG: "Е",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: true,
+    CORRECT_WORD: "БАССЕЙН",
+    WORD_TO_TEST: "БАССЕЙН",
+    TEST_POSITION: 2,
+    ANSWER_RIGTH: "СС",
+    ANSWER_WRONG: "С",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: false,
+    CORRECT_WORD: "ВМИГ",
+    WORD_TO_TEST: "ВМИГ",
+    TEST_POSITION: 3,
+    ANSWER_RIGTH: "Г",
+    ANSWER_WRONG: "К",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: false,
+    CORRECT_WORD: "ВОЗРАЖЕНИЕ",
+    WORD_TO_TEST: "ВОЗРАЖЕНИЕ",
+    TEST_POSITION: 4,
+    ANSWER_RIGTH: "А",
+    ANSWER_WRONG: "О",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: true,
+    CORRECT_WORD: "ВЫРОВНЕННЫЙ",
+    WORD_TO_TEST: "ВЫРОВНЕННЫЙ",
+    TEST_POSITION: 7,
+    ANSWER_RIGTH: "НН",
+    ANSWER_WRONG: "Н",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: false,
+    CORRECT_WORD: "ГИРЛЯНДА",
+    WORD_TO_TEST: "ГИРЛЯНДА",
+    TEST_POSITION: 1,
+    ANSWER_RIGTH: "И",
+    ANSWER_WRONG: "Е",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: false,
+    CORRECT_WORD: "ДИСТАНЦИЯ",
+    WORD_TO_TEST: "ДИСТАНЦИЯ",
+    TEST_POSITION: 7,
+    ANSWER_RIGTH: "И",
+    ANSWER_WRONG: "Е",
+    RANDOM: +Math.random().toFixed(2),
+  },
+  {
+    DUAL: true,
+    CORRECT_WORD: "ЖЕЛАННЫЙ",
+    WORD_TO_TEST: "ЖЕЛАННЫЙ",
+    TEST_POSITION: 4,
+    ANSWER_RIGTH: "НН",
+    ANSWER_WRONG: "Н",
+    RANDOM: +Math.random().toFixed(2),
+  },
+];
+
+export const CLASS_7_LENGTH = C_7.length;
+
+export const CLASS_7 = shuffle(C_7);
