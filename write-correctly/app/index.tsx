@@ -14,6 +14,7 @@ import { CLASS_5, CLASS_5_LENGTH } from "@/DATA/CLASS_5";
 import { CLASS_6, CLASS_6_LENGTH } from "@/DATA/CLASS_6";
 import { CLASS_7, CLASS_7_LENGTH } from "@/DATA/CLASS_7";
 import { CLASS_8, CLASS_8_LENGTH } from "@/DATA/CLASS_8";
+import { CLASS_9, CLASS_9_LENGTH } from "@/DATA/CLASS_9";
 
 export default function Index() {
   const [theme, setTheme] = useContext(ThemeContext);
@@ -44,6 +45,9 @@ export default function Index() {
       )}
       {theme === "CLASS_8" && (
         <StackWords classToTest={CLASS_8} classLenght={CLASS_8_LENGTH} />
+      )}
+      {theme === "CLASS_9" && (
+        <StackWords classToTest={CLASS_9} classLenght={CLASS_9_LENGTH} />
       )}
       <TouchableOpacity
         onPress={() => router.push("/classes")}
