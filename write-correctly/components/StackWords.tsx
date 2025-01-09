@@ -1,4 +1,10 @@
-import { StyleSheet, Text, useWindowDimensions, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import Word from "./Word";
 import Animated, {
@@ -6,15 +12,18 @@ import Animated, {
   useSharedValue,
 } from "react-native-reanimated";
 import { Canvas, Path, Skia } from "@shopify/react-native-skia";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 const StackWords = ({ classToTest, classLenght }) => {
-  const { width } = useWindowDimensions();
+  const { width, height } = useWindowDimensions();
   const [wordsArray, setWordsArray] = useState(classToTest);
 
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const [rightAnswers, setRightAnswers] = useState([]);
+  const [reload, setReload] = useState(false);
   const CANVAS_HEIGHT = 10;
   const STROKE_WIDTH = 10;
+  const RELOAD_SIZE = 180;
   const counterRight = useSharedValue(0);
   const counterWrong = useSharedValue(0);
   const percentage = useDerivedValue(() => {
@@ -96,6 +105,32 @@ const StackWords = ({ classToTest, classLenght }) => {
           {rightAnswers.length}
         </Animated.Text>
       </Animated.View>
+      {reload && (
+        <View
+          style={{
+            position: "absolute",
+            width: RELOAD_SIZE,
+            height: RELOAD_SIZE,
+            right: width / 2 - RELOAD_SIZE / 2,
+            top: height / 2 - RELOAD_SIZE / 2,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "white",
+          }}
+        >
+          <TouchableOpacity
+            style={{
+              justifyContent: "space-around",
+              alignItems: "center",
+              width: RELOAD_SIZE,
+              height: RELOAD_SIZE,
+            }}
+          >
+            <AntDesign name="reload1" size={54} color="black" />
+            <Text>Учить слова еще раз</Text>
+          </TouchableOpacity>
+        </View>
+      )}
       <Canvas
         style={{
           position: "absolute",
