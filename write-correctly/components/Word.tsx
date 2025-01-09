@@ -33,6 +33,7 @@ type Props = {
   setWrongAnswers: any;
   rightAnswers: string[];
   setRightAnswers: any;
+  setReload: any;
 };
 
 const DIVIDER_HEIGHT = 7;
@@ -47,6 +48,7 @@ const Word = ({
   wrongAnswers,
   setWrongAnswers,
   setRightAnswers,
+  setReload,
 }: Props) => {
   const { width } = useWindowDimensions();
   const [done, setDone] = useState(false);
@@ -410,7 +412,7 @@ const Word = ({
             answerDownOpacity.value = 1;
             if (wordsLenght === 1) {
               // console.log(wrongAnswers)
-              setReloadClass(true);
+              setReload(true);
               router.push({
                 pathname: "/statistics",
                 params: {

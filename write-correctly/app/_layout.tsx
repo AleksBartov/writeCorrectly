@@ -7,7 +7,7 @@ import {
 } from "@expo-google-fonts/nunito";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { createContext, useEffect, useState } from "react";
-import { TouchableOpacity } from "react-native";
+import { Platform, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 SplashScreen.preventAutoHideAsync();
@@ -44,10 +44,15 @@ export default function RootLayout() {
               presentation: "modal",
               headerTitle: "",
               headerShadowVisible: true,
-              headerStyle: { backgroundColor: "snow" },
-              headerLeft: () => {
-                return (
-                  <TouchableOpacity onPress={() => router.back()}>
+              headerStyle: { backgroundColor: "cyan" },
+              headerRight: () => {
+                return Platform.OS === "android" ? (
+                  <></>
+                ) : (
+                  <TouchableOpacity
+                    style={{ width: 40, height: 40 }}
+                    onPress={() => router.back()}
+                  >
                     <Ionicons name="close" size={34} color="black" />
                   </TouchableOpacity>
                 );
@@ -61,8 +66,10 @@ export default function RootLayout() {
               headerTitle: "",
               headerShadowVisible: true,
               headerStyle: { backgroundColor: "cyan" },
-              headerLeft: () => {
-                return (
+              headerRight: () => {
+                return Platform.OS === "android" ? (
+                  <></>
+                ) : (
                   <TouchableOpacity onPress={() => router.back()}>
                     <Ionicons name="close" size={34} color="black" />
                   </TouchableOpacity>

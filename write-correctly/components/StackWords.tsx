@@ -5,18 +5,21 @@ import {
   useWindowDimensions,
   View,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Word from "./Word";
 import Animated, {
+  FadeIn,
   useDerivedValue,
   useSharedValue,
+  withSpring,
+  withTiming,
 } from "react-native-reanimated";
 import { Canvas, Path, Skia } from "@shopify/react-native-skia";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 const StackWords = ({ classToTest, classLenght }) => {
   const { width, height } = useWindowDimensions();
-  const [wordsArray, setWordsArray] = useState(classToTest);
+  const [wordsArray, setWordsArray] = useState([]);
 
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const [rightAnswers, setRightAnswers] = useState([]);
@@ -47,6 +50,9 @@ const StackWords = ({ classToTest, classLenght }) => {
       CANVAS_HEIGHT / 2
     }`
   );
+  useEffect(() => {
+    setWordsArray(classToTest);
+  }, []);
   return (
     <>
       <View style={{ flex: 1 }}>
@@ -69,6 +75,7 @@ const StackWords = ({ classToTest, classLenght }) => {
               wrongAnswers={wrongAnswers}
               setWrongAnswers={setWrongAnswers}
               setRightAnswers={setRightAnswers}
+              setReload={setReload}
             />
           );
         })}
@@ -106,7 +113,8 @@ const StackWords = ({ classToTest, classLenght }) => {
         </Animated.Text>
       </Animated.View>
       {reload && (
-        <View
+        <Animated.View
+          entering={FadeIn.delay(1000)}
           style={{
             position: "absolute",
             width: RELOAD_SIZE,
@@ -119,6 +127,14 @@ const StackWords = ({ classToTest, classLenght }) => {
           }}
         >
           <TouchableOpacity
+            onPress={() => {
+              setWordsArray(classToTest);
+              setReload(false);
+              setWrongAnswers([]);
+              setRightAnswers([]);
+              counterWrong.value = withSpring(0);
+              counterRight.value = withSpring(0);
+            }}
             style={{
               justifyContent: "space-around",
               alignItems: "center",
@@ -129,7 +145,7 @@ const StackWords = ({ classToTest, classLenght }) => {
             <AntDesign name="reload1" size={54} color="black" />
             <Text>Учить слова еще раз</Text>
           </TouchableOpacity>
-        </View>
+        </Animated.View>
       )}
       <Canvas
         style={{
