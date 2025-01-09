@@ -19,6 +19,7 @@ import * as Haptics from "expo-haptics";
 import { SIZE } from "@/DATA/SIZES";
 import { SharedValueType } from "@shopify/react-native-skia";
 import { Word_type } from "@/utils";
+import { useRouter } from "expo-router";
 
 type Props = {
   word_test: Word_type;
@@ -49,6 +50,7 @@ const Word = ({
 }: Props) => {
   const { width } = useWindowDimensions();
   const [done, setDone] = useState(false);
+  const router = useRouter();
   const {
     ANSWER_RIGTH,
     ANSWER_WRONG,
@@ -406,10 +408,13 @@ const Word = ({
             answerUpOpacity.value = 1;
             answerDownOpacity.value = 1;
             if (wordsLenght === 1) {
-              Alert.alert(
-                "words are done!",
-                `Your wrong answers are: ${wrongAnswers}`
-              );
+              // console.log(wrongAnswers)
+              router.push({
+                pathname: "/statistics",
+                params: {
+                  wrongAnswers: wrongAnswers,
+                },
+              });
             }
           }}
         >

@@ -54,6 +54,22 @@ export default function RootLayout() {
               },
             }}
           />
+          <Stack.Screen
+            name="statistics"
+            options={{
+              presentation: "modal",
+              headerTitle: "",
+              headerShadowVisible: true,
+              headerStyle: { backgroundColor: "cyan" },
+              headerLeft: () => {
+                return (
+                  <TouchableOpacity onPress={() => router.back()}>
+                    <Ionicons name="close" size={34} color="black" />
+                  </TouchableOpacity>
+                );
+              },
+            }}
+          />
         </Stack>
       </GestureHandlerRootView>
     </ThemeContext.Provider>
