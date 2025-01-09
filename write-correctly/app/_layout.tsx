@@ -1,4 +1,4 @@
-import { SplashScreen, Stack } from "expo-router";
+import { SplashScreen, Stack, useRouter } from "expo-router";
 import {
   useFonts,
   Nunito_500Medium,
@@ -7,6 +7,8 @@ import {
 } from "@expo-google-fonts/nunito";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { createContext, useEffect, useState } from "react";
+import { TouchableOpacity } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -14,6 +16,7 @@ export const ThemeContext = createContext();
 
 export default function RootLayout() {
   const [theme, setTheme] = useState("CLASS_1");
+  const router = useRouter();
   let [fontsLoaded] = useFonts({
     Nunito_500Medium,
     Nunito_800ExtraBold,
@@ -42,6 +45,13 @@ export default function RootLayout() {
               headerTitle: "",
               headerShadowVisible: true,
               headerStyle: { backgroundColor: "snow" },
+              headerLeft: () => {
+                return (
+                  <TouchableOpacity onPress={() => router.back()}>
+                    <Ionicons name="close" size={34} color="black" />
+                  </TouchableOpacity>
+                );
+              },
             }}
           />
         </Stack>

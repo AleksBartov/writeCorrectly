@@ -77,9 +77,17 @@ export default function Index() {
         <Octicons name="number" size={44} color="black" />
       </TouchableOpacity>
       <Animated.View style={{ position: "absolute", top: 20, right: 50 }}>
-        <Animated.Text
-          style={{ fontSize: 20, fontFamily: "Nunito_800ExtraBold" }}
-        >{`${theme[theme.length - 1]} класс`}</Animated.Text>
+        {theme === "CLASS_10_11" ? (
+          <Animated.Text
+            style={{ fontSize: 15, fontFamily: "Nunito_800ExtraBold" }}
+          >
+            10 и 11 классы
+          </Animated.Text>
+        ) : (
+          <Animated.Text
+            style={{ fontSize: 20, fontFamily: "Nunito_800ExtraBold" }}
+          >{`${theme[theme.length - 1]} класс`}</Animated.Text>
+        )}
       </Animated.View>
     </>
   );
