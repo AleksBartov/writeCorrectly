@@ -50,6 +50,7 @@ const Word = ({
 }: Props) => {
   const { width } = useWindowDimensions();
   const [done, setDone] = useState(false);
+  const [reloadClass, setReloadClass] = useState(false);
   const router = useRouter();
   const {
     ANSWER_RIGTH,
@@ -409,6 +410,7 @@ const Word = ({
             answerDownOpacity.value = 1;
             if (wordsLenght === 1) {
               // console.log(wrongAnswers)
+              setReloadClass(true);
               router.push({
                 pathname: "/statistics",
                 params: {
