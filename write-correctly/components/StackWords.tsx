@@ -57,7 +57,6 @@ const StackWords = ({ classToTest, classLenght, name }) => {
 
   const reset = () => {
     setWordsArray(classToTest);
-    window.location.reload();
     setReload(false);
     setWrongAnswers([]);
     setRightAnswers([]);
