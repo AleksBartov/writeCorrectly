@@ -16,10 +16,11 @@ import Animated, {
 } from "react-native-reanimated";
 import { Canvas, Path, Skia } from "@shopify/react-native-skia";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { shuffle } from "@/utils";
 
 const StackWords = ({ classToTest, classLenght, name }) => {
   const { width, height } = useWindowDimensions();
-  const [wordsArray, setWordsArray] = useState([]);
+  const [wordsArray, setWordsArray] = useState([...classToTest]);
   const [seed, setSeed] = useState(1);
 
   const [wrongAnswers, setWrongAnswers] = useState([]);
@@ -51,12 +52,10 @@ const StackWords = ({ classToTest, classLenght, name }) => {
       CANVAS_HEIGHT / 2
     }`
   );
-  useEffect(() => {
-    setWordsArray(classToTest);
-  }, []);
 
   const reset = () => {
-    setWordsArray(classToTest);
+    // console.log(classToTest);
+    setWordsArray(shuffle([...classToTest]));
     setReload(false);
     setWrongAnswers([]);
     setRightAnswers([]);
@@ -77,6 +76,7 @@ const StackWords = ({ classToTest, classLenght, name }) => {
               word_test={w}
               key={seed}
               fadeOut={(i: number) => {
+                // console.log(wordsArray);
                 wordsArray.splice(i, 1);
                 setWordsArray([...wordsArray]);
               }}
@@ -129,10 +129,11 @@ const StackWords = ({ classToTest, classLenght, name }) => {
           entering={FadeIn.delay(1000)}
           style={{
             position: "absolute",
-            width: RELOAD_SIZE,
-            height: RELOAD_SIZE,
-            right: width / 2 - RELOAD_SIZE / 2,
-            top: height / 2 - RELOAD_SIZE / 2,
+            width: RELOAD_SIZE + 60,
+            height: RELOAD_SIZE + 60,
+            right: width / 2 - RELOAD_SIZE / 2 - 30,
+            top: height / 2 - RELOAD_SIZE / 2 - 30,
+            borderRadius: 12,
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "white",
@@ -143,12 +144,21 @@ const StackWords = ({ classToTest, classLenght, name }) => {
             style={{
               justifyContent: "space-around",
               alignItems: "center",
-              width: RELOAD_SIZE,
-              height: RELOAD_SIZE,
+              width: RELOAD_SIZE + 60,
+              height: RELOAD_SIZE + 60,
+              padding: 30,
             }}
           >
             <AntDesign name="reload1" size={54} color="black" />
-            <Text>Учить слова еще раз</Text>
+            <Text
+              style={{
+                textAlign: "center",
+                fontSize: 24,
+                fontFamily: "Nunito_800ExtraBold",
+              }}
+            >
+              Учить слова еще раз
+            </Text>
           </TouchableOpacity>
         </Animated.View>
       )}
