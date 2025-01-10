@@ -5,7 +5,7 @@ import {
   useWindowDimensions,
   View,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Word from "./Word";
 import Animated, {
   FadeIn,
@@ -16,9 +16,11 @@ import Animated, {
 } from "react-native-reanimated";
 import { Canvas, Path, Skia } from "@shopify/react-native-skia";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { ThemeContext } from "@/app/_layout";
 
-const StackWords = ({ classToTest, classLenght }) => {
+const StackWords = ({ classToTest, classLenght, name }) => {
   const { width, height } = useWindowDimensions();
+  const [theme, setTheme] = useContext(ThemeContext);
   const [wordsArray, setWordsArray] = useState([]);
 
   const [wrongAnswers, setWrongAnswers] = useState([]);
@@ -128,12 +130,14 @@ const StackWords = ({ classToTest, classLenght }) => {
         >
           <TouchableOpacity
             onPress={() => {
-              setWordsArray(classToTest);
+              // setTheme(name);
+              const newArray = [...classToTest];
+              setWordsArray(newArray);
               setReload(false);
               setWrongAnswers([]);
               setRightAnswers([]);
-              counterWrong.value = withSpring(0);
-              counterRight.value = withSpring(0);
+              counterWrong.value = withTiming(0, { duration: 1400 });
+              counterRight.value = withTiming(0, { duration: 1400 });
             }}
             style={{
               justifyContent: "space-around",

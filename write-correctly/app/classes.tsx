@@ -26,6 +26,7 @@ const classes = () => {
           width: "70%",
           justifyContent: "center",
           alignItems: "center",
+          paddingBottom: 45,
         }}
       >
         <TouchableOpacity
