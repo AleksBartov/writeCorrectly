@@ -16,12 +16,11 @@ import Animated, {
 } from "react-native-reanimated";
 import { Canvas, Path, Skia } from "@shopify/react-native-skia";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { ThemeContext } from "@/app/_layout";
 
 const StackWords = ({ classToTest, classLenght, name }) => {
   const { width, height } = useWindowDimensions();
-  const [theme, setTheme] = useContext(ThemeContext);
   const [wordsArray, setWordsArray] = useState([]);
+  const [seed, setSeed] = useState(1);
 
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const [rightAnswers, setRightAnswers] = useState([]);
@@ -55,6 +54,17 @@ const StackWords = ({ classToTest, classLenght, name }) => {
   useEffect(() => {
     setWordsArray(classToTest);
   }, []);
+
+  const reset = () => {
+    setWordsArray(classToTest);
+    setReload(false);
+    setWrongAnswers([]);
+    setRightAnswers([]);
+    counterWrong.value = withTiming(0, { duration: 1400 });
+    counterRight.value = withTiming(0, { duration: 1400 });
+    setSeed(Math.random());
+  };
+
   return (
     <>
       <View style={{ flex: 1 }}>
@@ -65,7 +75,7 @@ const StackWords = ({ classToTest, classLenght, name }) => {
           return (
             <Word
               word_test={w}
-              key={i}
+              key={seed}
               fadeOut={(i: number) => {
                 wordsArray.splice(i, 1);
                 setWordsArray([...wordsArray]);
@@ -129,16 +139,7 @@ const StackWords = ({ classToTest, classLenght, name }) => {
           }}
         >
           <TouchableOpacity
-            onPress={() => {
-              // setTheme(name);
-              const newArray = [...classToTest];
-              setWordsArray(newArray);
-              setReload(false);
-              setWrongAnswers([]);
-              setRightAnswers([]);
-              counterWrong.value = withTiming(0, { duration: 1400 });
-              counterRight.value = withTiming(0, { duration: 1400 });
-            }}
+            onPress={reset}
             style={{
               justifyContent: "space-around",
               alignItems: "center",

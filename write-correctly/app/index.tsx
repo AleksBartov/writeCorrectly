@@ -1,6 +1,6 @@
 import { TouchableOpacity } from "react-native";
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CLASS_4, CLASS_4_LENGTH } from "@/DATA/CLASS_4";
 import Octicons from "@expo/vector-icons/Octicons";
 import { useRouter } from "expo-router";
@@ -19,74 +19,79 @@ import { CLASS_10_11, CLASS_10_11_LENGTH } from "@/DATA/CLASS_10_11";
 
 export default function Index() {
   const [theme, setTheme] = useContext(ThemeContext);
+  const [stydy, setStydy] = useState();
+  useEffect(() => {
+    setStydy(theme);
+  }, [theme, setTheme, stydy, setStydy]);
+
   const router = useRouter();
 
   return (
     <>
-      {theme === "CLASS_1" && (
+      {stydy === "CLASS_1" && (
         <StackWords
           classToTest={CLASS_1}
           name="CLASS_1"
           classLenght={CLASS_1_LENGTH}
         />
       )}
-      {theme === "CLASS_2" && (
+      {stydy === "CLASS_2" && (
         <StackWords
           classToTest={CLASS_2}
           name="CLASS_2"
           classLenght={CLASS_2_LENGTH}
         />
       )}
-      {theme === "CLASS_3" && (
+      {stydy === "CLASS_3" && (
         <StackWords
           classToTest={CLASS_3}
           name="CLASS_3"
           classLenght={CLASS_3_LENGTH}
         />
       )}
-      {theme === "CLASS_4" && (
+      {stydy === "CLASS_4" && (
         <StackWords
           classToTest={CLASS_4}
           name="CLASS_4"
           classLenght={CLASS_4_LENGTH}
         />
       )}
-      {theme === "CLASS_5" && (
+      {stydy === "CLASS_5" && (
         <StackWords
           classToTest={CLASS_5}
           name="CLASS_5"
           classLenght={CLASS_5_LENGTH}
         />
       )}
-      {theme === "CLASS_6" && (
+      {stydy === "CLASS_6" && (
         <StackWords
           classToTest={CLASS_6}
           name="CLASS_6"
           classLenght={CLASS_6_LENGTH}
         />
       )}
-      {theme === "CLASS_7" && (
+      {stydy === "CLASS_7" && (
         <StackWords
           classToTest={CLASS_7}
           name="CLASS_7"
           classLenght={CLASS_7_LENGTH}
         />
       )}
-      {theme === "CLASS_8" && (
+      {stydy === "CLASS_8" && (
         <StackWords
           classToTest={CLASS_8}
           name="CLASS_8"
           classLenght={CLASS_8_LENGTH}
         />
       )}
-      {theme === "CLASS_9" && (
+      {stydy === "CLASS_9" && (
         <StackWords
           classToTest={CLASS_9}
           name="CLASS_9"
           classLenght={CLASS_9_LENGTH}
         />
       )}
-      {theme === "CLASS_10_11" && (
+      {stydy === "CLASS_10_11" && (
         <StackWords
           classToTest={CLASS_10_11}
           name="CLASS_10_11"
